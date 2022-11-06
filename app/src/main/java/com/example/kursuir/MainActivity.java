@@ -94,7 +94,7 @@ RelativeLayout root;
                     Snackbar.make(root, "Enter your Password again", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                //регистрация
+                //регистраци
                 auth.createUserWithEmailAndPassword(login.getText().toString(), pass.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
