@@ -53,8 +53,9 @@ RelativeLayout root;
 
         reg.setOnClickListener(v -> showRegisterWindow());
         log.setOnClickListener(v -> showSingInWindow());
+
     }
-    private void showSingInWindow(){
+    private void showSingInWindow() {
         root = findViewById(R.id.root);
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Register");
@@ -75,30 +76,30 @@ RelativeLayout root;
         dialog.setPositiveButton("Register", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(TextUtils.isEmpty(login.getText().toString())) {
-                    Snackbar.make(root,"Enter your login", Snackbar.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(login.getText().toString())) {
+                    Snackbar.make(root, "Enter your login", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                if(pass.getText().toString().length() < 8) {
+                if (pass.getText().toString().length() < 8) {
                     Snackbar.make(root, "Enter your Password", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
+                auth.signInWithEmailAndPassword(login.getText().toString(), pass.getText().toString())
+                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                startActivity(new Intent(MainActivity.this, Map.class));
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Snackbar.make(root, "Incorrect data!" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                            }
 
+                        });
             }
         });
-        auth.signInWithEmailAndPassword(login.getText().toString(),pass.getText().toString())
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        startActivity(new Intent(MainActivity.this, Map.class));
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Snackbar.make(root,"Incorrect data!" + e.getMessage(),Snackbar.LENGTH_SHORT).show();
-                    }
-                });
         dialog.show();
     }
 
@@ -125,7 +126,7 @@ RelativeLayout root;
         });
         dialog.setPositiveButton("Register", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int witch) {
                 if(TextUtils.isEmpty(login.getText().toString())) {
                     Snackbar.make(root,"Enter your login", Snackbar.LENGTH_SHORT).show();
                     return;
