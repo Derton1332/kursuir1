@@ -77,7 +77,7 @@ RelativeLayout root;
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (TextUtils.isEmpty(login.getText().toString())) {
-                    Snackbar.make(root, "Enter your login", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(root, "Enter your Email", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (pass.getText().toString().length() < 8) {
