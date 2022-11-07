@@ -17,8 +17,49 @@
             android:text="Здравствуйте!"
             android:textSize="40sp"
             android:gravity="center">
-
         </TextView>
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="nextPage"
+            android:text="Next page" />
+
+        <Button
+            android:id="@+id/favorite_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="favorite"
+            android:text="Favorite" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|left"
+        android:orientation="vertical"
+
+        >
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="LogOut"
+            android:text="LogOut" />
+
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

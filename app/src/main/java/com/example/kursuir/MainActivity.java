@@ -24,13 +24,13 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class MainActivity extends AppCompatActivity {
     private static int splash = 3000;
-Button reg,log;
+Button reg,log,next,fav,canc;
 FirebaseAuth auth;
 FirebaseDatabase db;
 DatabaseReference users;
 RelativeLayout root;
 
-
+//Потом сделать
     /*setContentView(R.layout.activity_welcome);
         new Handler().postDelayed(new Runnable(){
         @Override
@@ -73,7 +73,7 @@ RelativeLayout root;
                 dialogInterface.dismiss();
             }
         });
-        dialog.setPositiveButton("Register", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton("Login", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (TextUtils.isEmpty(login.getText().toString())) {
@@ -102,9 +102,6 @@ RelativeLayout root;
         });
         dialog.show();
     }
-
-
-
     private void showRegisterWindow() {
         root = findViewById(R.id.root);
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -162,4 +159,5 @@ RelativeLayout root;
         });
         dialog.show();
     }
+
 }
