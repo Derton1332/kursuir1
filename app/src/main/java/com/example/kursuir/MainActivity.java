@@ -1,9 +1,6 @@
 package com.example.kursuir;
-
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,34 +28,65 @@ DatabaseReference users;
 RelativeLayout root;
 
 
+    /*setContentView(R.layout.activity_welcome);
+        new Handler().postDelayed(new Runnable(){
+        @Override
+        public void run(){
+            Intent homeIntent = new Intent(MainActivity.this, Welcome.class);
+            startActivity(homeIntent);
+            finish();
+        }
+    },splash);
+        */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sing_in_winow);
-        reg = findViewById(R.id.reg);
-        log = findViewById(R.id.log);
+        setContentView(R.layout.activity_main);
+        reg = findViewById(R.id.Bt_reg);
+        log = findViewById(R.id.Bt_log);
         auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         users = db.getReference("users");
 
-            reg.setOnClickListener(new View.OnClickListener() {
+        reg.setOnClickListener(v -> showRegisterWindow());
+    }
+    private void showSingInWindow(){
+        root = findViewById(R.id.root);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Register");
+        dialog.setMessage("Put all data");
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View register_window = inflater.inflate(R.layout.sing_up_window, null);
+        dialog.setView(register_window);
 
-                @Override
-                public void onClick(View view) {
-                    showRegisterWindow();
-                }
-            });
+        MaterialEditText login = register_window.findViewById(R.id.LoginText);
+        MaterialEditText pass = register_window.findViewById(R.id.PassText);
+        MaterialEditText passconf = register_window.findViewById(R.id.ConfPassText);
 
-            setContentView(R.layout.activity_welcome);
-            new Handler().postDelayed(new Runnable(){
-                @Override
-                public void run(){
-                    Intent homeIntent = new Intent(MainActivity.this, Welcome.class);
-                    startActivity(homeIntent);
-                    finish();
+        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        dialog.setPositiveButton("Register", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(TextUtils.isEmpty(login.getText().toString())) {
+                    Snackbar.make(root,"Enter your login", Snackbar.LENGTH_SHORT).show();
+                    return;
                 }
-            },splash);
-        }
+                if(pass.getText().toString().length() < 8) {
+                    Snackbar.make(root, "Enter your Password", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+
+            }
+        });
+        dialog.show();
+    }
+
+
 
     private void showRegisterWindow() {
         root = findViewById(R.id.root);
