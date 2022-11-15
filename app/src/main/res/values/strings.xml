@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">kursuir</string>
-</resources>
+        <string-array name="Phones">
+            <item>Выберите товар</item>
+            <item>IPhone 11 64 gb</item>
+            <item>IPhone 11 128 gb</item>
+            <item>IPhone 11 256 gb</item>
+            <item>IPhone 12 64 gb</item>
+            <item>IPhone 12 128 gb</item>
+            <item>IPhone 12 256 gb</item>
+            <item>IPhone 12 512 gb</item>
+            <item>IPhone 12 1 tb</item>
+            <item>IPhone 13 64 gb</item>
+            <item>IPhone 13 256 gb</item>
+            <item>IPhone 13 512 gb</item>
+            <item>IPhone 13 1 tb</item>
+            <item>IPhone 14 64 gb</item>
+            <item>IPhone 14 128 gb</item>
+            <item>IPhone 14 256 gb</item>
+            <item>IPhone 14 512 gb</item>
+            <item>IPhone 14 1 tb</item>
+        </string-array>
+    </resources>

@@ -14,10 +14,7 @@ public class Map extends AppCompatActivity {
         setContentView(R.layout.activity_map);
     }
 
-    public void nextPage(View view) {
-        Intent intent = new Intent(this,Categories.class);
-        startActivity(intent);
-    }
+
 
     public void favorite(View view) {
         Intent intent = new Intent(this,Favorite.class);
