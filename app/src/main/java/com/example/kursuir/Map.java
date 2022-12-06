@@ -17,7 +17,7 @@ public class Map extends AppCompatActivity {
 
 
     public void favorite(View view) {
-        Intent intent = new Intent(this,Favorite.class);
+        Intent intent = new Intent(Map.this,Favorite.class);
         startActivity(intent);
     }
 

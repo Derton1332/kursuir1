@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">kursuir</string>
+    <string name="app_name">Генератор накладных</string>
     <string-array name="Phones">
         <item>Выберите товар</item>
         <item>IPhone 11 64 gb</item>

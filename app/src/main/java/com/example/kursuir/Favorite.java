@@ -24,7 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Favorite extends AppCompatActivity {
-    Button create, firstsegment, secondsegment;
+    Button create, firstsegment;
     TextView item1spinner;
     TextView qty1;
     TextView buyerPrint;
@@ -54,7 +54,6 @@ public class Favorite extends AppCompatActivity {
         buyerPrint = findViewById(R.id.buyerPrint);
         sellerPrint = findViewById(R.id.sellerPrint);
         firstsegment = findViewById(R.id.firstsegment);
-        secondsegment = findViewById(R.id.secondsegment);
         qty4 = findViewById(R.id.qty4);
         sellerName = findViewById(R.id.sellerName);
         buyerName = findViewById(R.id.buyerName);
@@ -112,9 +111,10 @@ public class Favorite extends AppCompatActivity {
         create.setOnClickListener(v -> {
             if (
                     sellerName.getText().toString().length() == 0 ||
-                            buyerName.getText().toString().length() == 0
+                            buyerName.getText().toString().length() == 0 ||
+            number.getText().toString().length() == 0|| qty.getText().toString().length() == 0
             ) {
-                Toast.makeText(Favorite.this, "Введите Данные!", Toast.LENGTH_LONG).show();
+                Toast.makeText(Favorite.this, "Нет данных! Нажмите начать заполнение", Toast.LENGTH_LONG).show();
             } else {
                 PdfDocument myPdfDocument = new PdfDocument();
                 Paint myPaint = new Paint();
